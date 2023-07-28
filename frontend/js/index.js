@@ -16,7 +16,7 @@ for (let x=0; x <=20; x++){
  
 }
 // URL da rota que você deseja acessar
-const url = 'http://127.0.0.1:5500/getHistory';
+const url = 'https://rememberthehistory.onrender.com/getHistory';
 
 // Configuração do request
 const options = {
