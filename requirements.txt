@@ -3,3 +3,4 @@ python-dotenv
 firebase_admin
 Flask
 pytz
+Flask-Cors
