@@ -1,0 +1,5 @@
+requests
+python-dotenv
+firebase_admin
+Flask
+pytz
