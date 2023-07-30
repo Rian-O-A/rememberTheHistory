@@ -1,103 +1,187 @@
 /* Reseta a margem e o padding padrão dos elementos da lista */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #111; /* Fundo escuro */
 }
 
-
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Exibe os itens da lista como blocos lado a lado */
 li {
-    display: inline-block;
-    margin-left: 20px; /* Espaçamento entre os itens do menu */
+  display: inline-block;
+  margin-left: 20px; /* Espaçamento entre os itens do menu */
 }
 
 /* Estilo dos links no menu */
 a {
-    display: block;
-    padding: 15px 25px;
-    text-decoration: none;
-    color: #fff; /* Cor do texto do link */
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    transition: background-color 0.3s ease;
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+  color: #fff; /* Cor do texto do link */
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: background-color 0.3s ease;
 }
 
 /* Estilo dos links quando estão em hover (mouse por cima) */
 a:hover {
-    background-color: #00BFFF; /* Azul Ciano */
+  background-color: #00BFFF; /* Azul Ciano */
+  color: #111; /* Texto escuro quando em hover */
 }
 
 /* Estilo do menu de navegação */
 nav {
-    background-color: #C0C0C0; /* Prata ou Cinza Metálico */
-    text-align: center;
-    padding: 40px 0;
+  background-color: #444; /* Cinza escuro */
+  text-align: center;
+  padding: 40px 0;
 }
-
-
-
 
 .cardUser {
-    display: flex;
-    align-items: center; /* Centraliza verticalmente os itens dentro do container */
-    padding-top: 40px;
-    justify-content: center;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente os itens dentro do container */
+  padding-top: 30px;
+  justify-content: center;
 }
-
-
-
 
 .date,
 .user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #00BFFF;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    border-right: 1px solid #ffffff;
-    width: 100px;
-    height: 100px;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00BFFF;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  border-right: 1px solid #ffffff;
+  width: 100px;
+  height: 100px;
+  transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
+}
+
+.date {
+  border-right: none;
+  border-radius: 0 5px 5px 0;
+}
+
+.user img {
+  width: 80%; /* A imagem ocupa toda a largura da div */
+  height: auto; /* A altura é ajustada proporcionalmente */
+  border-radius: 50%; /* Bordas arredondadas para a imagem */
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00BFFF;
+  border: none;
+  border-right: 1px solid #ffffff;
+  width: 500px;
+  height: 100px;
+  transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
+  overflow: hidden; /* Impede que o texto ultrapasse a div "date" */
+  white-space: nowrap; /* Impede que o texto seja quebrado em várias linhas */
+  text-overflow: ellipsis; /* Adiciona "..." ao final do texto truncado */
+}
+
+.message p {
+  margin: 0; /* Remove margem padrão do parágrafo */
+}
+
+.idUSER {
+  display: none;
+}
+
+
+.plus-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #00ccff; /* Cor azul-ciano */
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4); /* Sombra azul-ciano com transparência */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efeitos de transição */
+  font-size: 64px;
+}
+
+
+
+.plus-icon:hover {
+  background-color: #00b3e6; /* Azul-ciano um pouco mais escuro em hover */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Sombra azul-ciano mais intensa em hover */
+}
+
+
+#containePlus{
+  padding-left: 20%;
+  padding-top: 5%;
+}
+
+/* ============================= modal ============================== */
+/* Estilize o modal conforme suas preferências */
+.modal {
+    display: none; /* Modal inicialmente oculto */
+    position: absolute;
+    background-color: #1f1f1f; /* Cor de fundo - Preto escuro */
+    border: 2px solid #00ffff; /* Cor da borda - Azul claro */
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Sombra - Azul claro com transparência */
+    border-radius: 15px; /* Borda arredondada */
   }
-
-  .message{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #00BFFF;
-    border: none;
-    border-right: 1px solid #ffffff;
-    width: 500px;
-    height: 100px;
+  
+  .close {
+    color: #00ffff; /* Azul claro */
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
   }
-
-  .message p{
-    overflow: hidden; /* Impede que o texto ultrapasse a div "date" */
-    white-space: nowrap; /* Impede que o texto seja quebrado em várias linhas */
-    text-overflow: ellipsis; /* Adiciona "..." ao final do texto truncado */
+  
+  .close:hover,
+  .close:focus {
+    color: #00ccff; /* Azul um pouco mais escuro */
+    text-decoration: none;
+    cursor: pointer;
   }
-
-  .date{
-    border-right: none;
-    border-radius: 0 5px 5px 0;
+  
+  /* Estilos adicionais para o tema futurístico */
+  .modal-content {
+    font-family: 'Arial', sans-serif;
+    color: #fff; /* Texto em branco */
+    line-height: 1.6;
   }
-
-
-  .user img {
-    width: 80%; /* A imagem ocupa toda a largura da div */
-    height: auto; /* A altura é ajustada proporcionalmente */
+  
+  h2 {
+    color: #00ffff; /* Azul claro */
+    border-bottom: 1px solid #00ccff; /* Azul um pouco mais escuro */
+    padding-bottom: 5px;
   }
-
+  
+  /* Estilo para o "balão" */
+  .modal::before {
+    content: "";
+    position: absolute;
+    bottom: 100%; /* Posiciona o balão acima do modal */
+    left: 15%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #1f1f1f transparent; /* A mesma cor de fundo do modal */
+  }
+  
+  
+  
+  
 
 /* Estilo do menu em telas menores (responsivo) */
 @media (max-width: 768px) {
