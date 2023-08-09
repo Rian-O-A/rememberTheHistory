@@ -96,4 +96,4 @@ if (form){
 
 var video = document.getElementById('video-background')
 
-video.style.display = ''
+// video.style.display = ''

@@ -1,13 +1,11 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 16px;
   color: #ffffff;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #222222;
-  background-size: cover;
-  background-position: center;
+  background-color: #000000;
 }
 
 #video-background {
@@ -36,12 +34,12 @@ body {
 }
 
 .register-form {
-  background-color: #2a2a2a;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
   padding: 40px;
   width: 400px;
-  border-color: #00ffff; /* borda com cor futurística */
-  box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.4); /* sombra com cor futurística */
+  border-color: #00ffff;
+  box-shadow: 10px 10px 10px 10px rgba(0, 255, 255, 0.4);
 }
 
 .form-group {
@@ -55,7 +53,7 @@ body {
 .label {
   font-size: 18px;
   font-weight: bold;
-  color: #00ffff; /* cor futurística */
+  color: #00ffff;
   margin-bottom: 10px;
 }
 
@@ -65,25 +63,21 @@ body {
   padding: 8px;
   margin-left: 10px;
   border: none;
-  border-bottom: 1px solid #00ffff; /* cor futurística */
+  border-bottom: 1px solid #00ffff;
   border-radius: 4px;
   font-size: 16px;
   color: #ffffff;
-  background-color: #2a2a2a;
+  background-color: rgba(0, 0, 0, 0.5);
   transition: border-color 0.3s ease-in-out;
 }
 
 .input:hover,
 .input:focus {
   outline: none;
-  border-color: #ff00ff; /* cor futurística */
+  border-color: #ff00ff;
 }
 
-#toggle-password-icon {
-  position: relative;
-  right: 30px;
-}
-
+#toggle-password-icon,
 #toggle-passwordVerify-icon {
   position: relative;
   right: 30px;
@@ -93,7 +87,7 @@ body {
   display: block;
   width: 100%;
   padding: 12px;
-  background-color: #00ffff; /* cor futurística */
+  background-color: #00ccff;
   color: #ffffff;
   border: none;
   border-radius: 4px;
@@ -104,11 +98,11 @@ body {
 }
 
 .button:hover {
-  background-color: #ff00ff; /* cor futurística */
+  background-color: #ff00ff;
 }
 
 .button:active {
-  background-color: #ff00ff; /* cor futurística */
+  background-color: #ff00ff;
 }
 
 .form-group p {
@@ -117,7 +111,7 @@ body {
 }
 
 .form-group p a {
-  color: #ff00ff; /* cor futurística */
+  color: #ff00ff;
   text-decoration: none;
 }
 
@@ -125,18 +119,15 @@ body {
   text-decoration: underline;
 }
 
-/* error message */
+/* Error message */
 
 .error-message {
-  color: #ff0000; /* cor futurística */
+  color: #ff0000;
   font-size: 12px;
   padding-left: 13px;
 }
 
-#error-password {
-  display: none;
-}
-
+#error-password,
 #error-passwordVerify {
   display: none;
 }

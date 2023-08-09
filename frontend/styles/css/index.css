@@ -7,41 +7,80 @@ body {
   background-color: #111; /* Fundo escuro */
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+
+.loaderDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
   margin: 0;
+
+}
+.loader {
+  
+  
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
 }
 
-/* Exibe os itens da lista como blocos lado a lado */
-li {
-  display: inline-block;
-  margin-left: 20px; /* Espaçamento entre os itens do menu */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Estilo dos links no menu */
-a {
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  background-color: #333;
+  margin: 0;
+  padding: 10px;
+}
+
+nav li {
+  margin: 0;
+  padding: 0;
+}
+
+
+nav a {
   display: block;
-  padding: 15px 25px;
+  padding: 15px 20px;
   text-decoration: none;
-  color: #fff; /* Cor do texto do link */
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  transition: background-color 0.3s ease;
+  color: white;
+  position: relative;
+  transition: color 0.3s;
 }
 
-/* Estilo dos links quando estão em hover (mouse por cima) */
-a:hover {
-  background-color: #00BFFF; /* Azul Ciano */
-  color: #111; /* Texto escuro quando em hover */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ff00ff;
+  bottom: 10px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Estilo do menu de navegação */
-nav {
-  background-color: #444; /* Cinza escuro */
-  text-align: center;
-  padding: 40px 0;
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+nav a.active::after {
+  transform: scaleX(1);
+}
+
+nav a.active:hover::after {
+  transform: scaleX(1);
 }
 
 .cardUser {
@@ -125,6 +164,69 @@ nav {
   padding-left: 20%;
   padding-top: 5%;
 }
+
+
+/* ============================= modal de input ================================ */
+.modalInput {
+  background-color: #1a1a1a; /* Cor de fundo - Cinza escuro */
+  color: #fff; /* Texto em branco */
+  border: 2px solid #00ccff; /* Cor da borda - Azul-ciano */
+  border-radius: 15px; /* Borda arredondada */
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.5); /* Sombra - Azul-ciano com transparência */
+  display: none; /* Modal inicialmente oculto */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Z-index alto para ficar acima de outros elementos */
+  padding: 20px;
+  width: 20%;
+}
+
+#textInput{
+  width: 70%;
+  height: 60%;
+  resize: none;
+
+}
+
+
+.modal-contentInput {
+  text-align: center;
+}
+
+h2.modal-title {
+  color: #00ccff; /* Azul-ciano */
+}
+
+.input-field textarea {
+  border: 1px solid #00ccff; /* Azul-ciano */
+  background-color: rgba(0, 204, 255, 0.2); /* Fundo azul-ciano com transparência */
+  color: #fff; /* Texto em branco */
+  padding: 10px;
+  border-radius: 5px;
+  resize: vertical; /* Permite a expansão vertical */
+  min-height: 100px; /* Altura mínima */
+}
+
+#submitButton {
+  background-color: #00ccff; /* Azul-ciano */
+  color: #fff; /* Texto em branco */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#submitButton:hover {
+  background-color: #00b3e6; /* Azul-ciano um pouco mais escuro em hover */
+}
+
+
 
 /* ============================= modal ============================== */
 /* Estilize o modal conforme suas preferências */

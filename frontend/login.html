@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="./styles/css/login.css">
+  <link rel="stylesheet" href="./styles/css/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" type="image/png" href="./styles/css/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+</head>
+<body>
+    <video id="video-background" autoplay loop muted>
+        <source src="./styles/css/img/backGround.mp4" type="video/mp4">
+        
+    </video>
+  <div class="container">
+    <form class="login-form">
+      <div class="form-group">
+        <label class="label" for="username">Usuário</label>
+        <input class="input" type="email" id="userEmail" placeholder="Digite seu nome de usuário" required/>
+      </div>
+      <div class="form-group">
+        <label class="label" for="password">Senha</label>
+        <input class="input passwdInput" type="password" id="password" placeholder="Digite sua senha" />
+        <span id="toggle-password" class="toggle-password">
+          
+          <i id="toggle-password-icon" class="iconEyes fas fa-eye-slash"></i>
+          
+          </span>
+      </div>
+      <div class="form-group">
+        <div class="remember-checkbox">
+            <input class="checkbox" type="checkbox" id="remember"/>
+            <label for="remember">Lembrar de mim</label>
+            <p><a id="openModalBtn">Esqueceu a senha?</a></p>
+            
+            <div id="myModal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Recuperar login</h2>
+                <input class="inputsModal" type="email"  placeholder=" Digite o email registrado"/>
+                <button class="buttonModal">Enviar email</button>  
+                 
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <button class="button" type="submit">Entrar</button>
+      <div class="form-group">
+        <p>Ainda não tem uma conta? <a href="./register.html">Criar uma conta</a></p>
+      </div>
+      
+    </form>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-icons">
+        
+        <a id="whatsapp" href="https://wa.me/5528999957511" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a id="email" class="email-link" href="mailto:rianoliveira38@gmail.com"><i class="fas fa-envelope email-icon"></i></a>
+        <a id="linkedin" href="https://www.linkedin.com/in/rian-almeida-2b96ba229/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a id="github" href="https://github.com/Rian-O-A" target="_blank"><i class="fab fa-github"></i></a>
+        
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Todos os direitos reservados &copy; 2023</p>
+    </div>
+    
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  <script src="./js/login.js"></script>
+  <script src="./js/filters.js"></script>
+</body>
+</html>
