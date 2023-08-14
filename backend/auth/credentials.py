@@ -16,3 +16,10 @@ credFirebase = {
 }
 
 databaseURL = {"databaseURL": os.environ['databaseURL']}
+api_key = os.environ["api_key"]
+
+passwordRSAPriv = os.environ["passwordRSAPriv"]
+secretKey= os.environ["secretKey"]
+
+urlFireBase = os.environ["urlFireBase"]
+validationAPIKey = os.environ["validationAPIKey"]

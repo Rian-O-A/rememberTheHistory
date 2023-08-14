@@ -1,7 +1,9 @@
 import firebase_admin
 from firebase_admin import credentials, db, auth
+from backend.auth.credentials import api_key
+from backend.auth.credentials import credFirebase, databaseURL, urlFireBase
+import requests
 
-from backend.auth.credentials import credFirebase, databaseURL
 
 firebase_admin.initialize_app(credentials.Certificate(credFirebase), databaseURL)
 
@@ -16,5 +18,30 @@ class Manager:
 
     def registerUser(**args):
         
-        return auth.create_user(email=args["email"], password=args["senha"], display_name=args["name"]) 
+         response = auth.create_user(email=args["email"], password=args["senha"], display_name=args["name"]) 
+         return {"uid":response.uid, "displayName": response.display_name}
+    
+    def loginUser(**args):
+
+        auth_payload = {
+            'email': args["email"],
+            'password': args["senha"],
+            'returnSecureToken': True
+        }
+
+        # Fazendo a solicitação POST para autenticar e obter o token JWT
+        response = requests.post(urlFireBase, params={'key': api_key}, json=auth_payload).json()
+        
+        
+        if "idToken" in response:
+            print(response)
+            return ({"uid":response['localId'], "displayName": response["displayName"]}, 200)
+        else:
+            return ({"error":response['error']['message']}, response['error']['code'])
+                
+
+                
+        
+        
+        
     

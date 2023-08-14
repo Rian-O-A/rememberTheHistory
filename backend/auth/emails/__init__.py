@@ -1,6 +1,7 @@
 import requests
+from backend.auth.credentials import validationAPIKey 
 
-headers = {"x-api-key": "0srlaPhUBb5pXeQXtqjGn2AB33JdkOsD6v2EZh7u"}
+headers = {"x-api-key": validationAPIKey}
 
 def validation(email):
     
