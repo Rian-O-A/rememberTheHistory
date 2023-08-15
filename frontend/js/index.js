@@ -2,14 +2,15 @@ let container = document.querySelector("#muralStore")
 
 
 // URL da rota que você deseja acessar
-const url = 'https://rememberthehistory.onrender.com/getHistory';
+const url = 'https://rememberthehistory.onrender.com/all/getHistory';
 
+token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MTk3NjYwMSwianRpIjoiMjM3MTJmNGYtNGM0Zi00OTQzLTkyOWQtY2YxNjhlMDA2YTg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1aWQiOiJDUGhpQ2RCUENsV25PNW4xUEN3ZGRjQ0lnWUYzIiwiZGlzcGxheU5hbWUiOiJSaWFuIGRlIE9saXZlaXJhIEFsbWVpZGEifSwibmJmIjoxNjkxOTc2NjAxLCJleHAiOjE2OTIxNDk0MDF9.wFkfXNitTUBkNBokFiG36KQy9GGnf9kDCBdzafV5lYKi7k9RfBrQr3AuI3eVOoMTVRDtj3VZ5vYmAUf7P_6DIlAs3J3pQ7XYUdVTvzZ0HmxrXmx2PjfPP2pdq1BSGS8HdnNHCPsh9j8pcW5jenF54B0m3eATW_iGE74l2aYqsfulT824p7sesLnXU6_A54qLIzxszOCf-POTyKzapER8FIdxy3569YSAu4DbBsjbaEE85xeLBky4j81Vl6aMhWDIysiWCuQU4vyJFn4JcKrctHYYYfcZuVFTcJ_cnh48rhUaPSaAFT2HdnHo_5_73OjNzUpdc-77BJ5nJ2LEBiF36w"
 
 // Configuração do request
 const options = {
   method: 'GET',
   headers: {
-
+    "Authorization": `Bearer ${token}`
   }
 }
 
