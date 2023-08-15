@@ -37,9 +37,9 @@ jwt = JWTManager(app)
 
 def create_app():
     # Registro do Blueprint de autenticação
-    CORS(app, resources={r"/*": {"origins": "*"}})
     from .route import authDefault, authRoute
     app.register_blueprint(authDefault, url_prefix="")
     app.register_blueprint(authRoute, url_prefix="/auth")
+    CORS(app, resources={r"/*": {"origins": "*"}})
     # Outras configurações e registros de Blueprints e rotas vão aqui
     return app
