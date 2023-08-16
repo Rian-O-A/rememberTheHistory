@@ -2,7 +2,7 @@ let container = document.querySelector("#muralStore")
 
 
 // URL da rota que você deseja acessar
-const url = 'https://rememberthehistory.onrender.com/all/getHistory';
+const url = 'https://rememberthehistory.onrender.com/all/history';
 
 token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MTk3NjYwMSwianRpIjoiMjM3MTJmNGYtNGM0Zi00OTQzLTkyOWQtY2YxNjhlMDA2YTg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1aWQiOiJDUGhpQ2RCUENsV25PNW4xUEN3ZGRjQ0lnWUYzIiwiZGlzcGxheU5hbWUiOiJSaWFuIGRlIE9saXZlaXJhIEFsbWVpZGEifSwibmJmIjoxNjkxOTc2NjAxLCJleHAiOjE2OTIxNDk0MDF9.wFkfXNitTUBkNBokFiG36KQy9GGnf9kDCBdzafV5lYKi7k9RfBrQr3AuI3eVOoMTVRDtj3VZ5vYmAUf7P_6DIlAs3J3pQ7XYUdVTvzZ0HmxrXmx2PjfPP2pdq1BSGS8HdnNHCPsh9j8pcW5jenF54B0m3eATW_iGE74l2aYqsfulT824p7sesLnXU6_A54qLIzxszOCf-POTyKzapER8FIdxy3569YSAu4DbBsjbaEE85xeLBky4j81Vl6aMhWDIysiWCuQU4vyJFn4JcKrctHYYYfcZuVFTcJ_cnh48rhUaPSaAFT2HdnHo_5_73OjNzUpdc-77BJ5nJ2LEBiF36w"
 
@@ -24,7 +24,7 @@ fetch(url, options)
   })
   .then(data => {
     // Aqui você pode lidar com a resposta recebida
-    const message = data.message
+    const message = data.message["historys"]
     const chaves = Object.keys(message)
     document.querySelector(".loaderDiv").style.display ='none'
     chaves.forEach((valor) => {
@@ -147,4 +147,18 @@ submitButton.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
-
+ // Fazendo o request
+ fetch("https://rememberthehistory.onrender.com/user/history", options)
+ .then(response => response.json()) // Converte a resposta para JSON
+ .then(data => {
+   console.log('Resposta da API:', data)
+   let nome = data['message']["myHistorys"]["nome"].split(" ")
+   nome = `${nome[0]} ${nome[nome.length - 1]}`
+   document.querySelector("#nomeUser").innerHTML = nome
+   // Aqui você pode lidar com a resposta da API
+ })
+ .catch(error => {
+   console.error('Erro na requisição:', error)
+   // Lidar com erros, se houver
+ })
+ 

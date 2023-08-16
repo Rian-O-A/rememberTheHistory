@@ -89,6 +89,11 @@ nav a.active:hover::after {
   padding-top: 30px;
   justify-content: center;
 }
+nav img {
+  width: 15%; /* A imagem ocupa toda a largura da div */
+  height: auto; /* A altura é ajustada proporcionalmente */
+  border-radius: 50%; /* Bordas arredondadas para a imagem */
+}
 
 .date,
 .user {
