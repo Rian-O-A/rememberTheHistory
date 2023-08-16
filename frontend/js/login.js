@@ -94,3 +94,43 @@ modalButton.addEventListener("click", function(event) {
         }
         }
     })
+
+document.querySelector(".login-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Impede o envio do formulário
+
+    // Aqui você pode adicionar o código para executar quando o formulário for enviado
+    console.log("Formulário enviado!");
+
+    // Você pode acessar os valores dos campos do formulário assim:
+    var userEmail = document.getElementById("userEmail").value;
+    var senha = document.getElementById("password").value;
+    
+    let data =  {
+        email:userEmail, 
+        password:senha
+    }   
+     // Configuração do request
+    const optionsPost = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+        }, body: JSON.stringify(data),
+    }
+    
+    // Fazendo o request
+    fetch("https://rememberthehistory.onrender.com/auth/login", optionsPost)
+    .then(response => response.json()) // Converte a resposta para JSON
+    .then(data => {
+        console.log('Resposta da API:', data)
+        // Aqui você pode lidar com a resposta da API
+    })
+    .catch(error => {
+        console.error('Erro na requisição:', error)
+        // Lidar com erros, se houver
+    })
+    textInput.value = ""
+    modal.style.display = 'none';
+    });
+    
+    console.log("Email:", email);
+    console.log("Senha:", senha);

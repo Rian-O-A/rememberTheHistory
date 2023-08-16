@@ -46,6 +46,7 @@ nav ul {
 nav li {
   margin: 0;
   padding: 0;
+  margin-top: 15px;
 }
 
 
@@ -90,7 +91,7 @@ nav a.active:hover::after {
   justify-content: center;
 }
 nav img {
-  width: 15%; /* A imagem ocupa toda a largura da div */
+  width: 75px; /* A imagem ocupa toda a largura da div */
   height: auto; /* A altura é ajustada proporcionalmente */
   border-radius: 50%; /* Bordas arredondadas para a imagem */
 }

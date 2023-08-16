@@ -4,7 +4,7 @@ let container = document.querySelector("#muralStore")
 // URL da rota que você deseja acessar
 const url = 'https://rememberthehistory.onrender.com/all/history';
 
-token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MTk3NjYwMSwianRpIjoiMjM3MTJmNGYtNGM0Zi00OTQzLTkyOWQtY2YxNjhlMDA2YTg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1aWQiOiJDUGhpQ2RCUENsV25PNW4xUEN3ZGRjQ0lnWUYzIiwiZGlzcGxheU5hbWUiOiJSaWFuIGRlIE9saXZlaXJhIEFsbWVpZGEifSwibmJmIjoxNjkxOTc2NjAxLCJleHAiOjE2OTIxNDk0MDF9.wFkfXNitTUBkNBokFiG36KQy9GGnf9kDCBdzafV5lYKi7k9RfBrQr3AuI3eVOoMTVRDtj3VZ5vYmAUf7P_6DIlAs3J3pQ7XYUdVTvzZ0HmxrXmx2PjfPP2pdq1BSGS8HdnNHCPsh9j8pcW5jenF54B0m3eATW_iGE74l2aYqsfulT824p7sesLnXU6_A54qLIzxszOCf-POTyKzapER8FIdxy3569YSAu4DbBsjbaEE85xeLBky4j81Vl6aMhWDIysiWCuQU4vyJFn4JcKrctHYYYfcZuVFTcJ_cnh48rhUaPSaAFT2HdnHo_5_73OjNzUpdc-77BJ5nJ2LEBiF36w"
+token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5MjE5ODgzOSwianRpIjoiYTk3NTMxMmItYjk5Ny00M2M0LTlkZWMtYmExN2YyZTBjMDQ5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1aWQiOiJpRGhMRUVmZUpzVGNaOEs1cGx4azJ1OFlxNWsyIiwiZGlzcGxheU5hbWUiOiJSaWFuIGRlIE9saXZlaXJhIEFsbWVpZGEifSwibmJmIjoxNjkyMTk4ODM5LCJleHAiOjE2OTIzNzE2Mzl9.m4tYbWq8oPZH3BRdK6Zk37FRlVMF1roevARQYy-80CwXNO0deDwNlXi6q5prjLIt_AnyVJ8oyxjkhMHcPgW_DGyw0UajO5fa7nJPyaRkfLiq1eGufhoFlyR-GksO3oYCYeeaEuFSOw_nyPCAoin75sflvfbRBNTbQvxhtw8k-09erPOVnpEqS22v9XaK949SwAaYESWL6bKzpg0g1d1ocrmRB2w02wVJs0EbBnCNoiG-h0LssGZbtv4Ty45aElD4vGQWv3jvRpkLFnV9dzbIuAZ24_OkQpRHpdVWy_2bDsqk2p5WtUOzjr2RywFeQgdeS5kobtyadBoZHEQK7Fxc1g"
 
 // Configuração do request
 const options = {
@@ -152,7 +152,8 @@ submitButton.addEventListener('click', () => {
  .then(response => response.json()) // Converte a resposta para JSON
  .then(data => {
    console.log('Resposta da API:', data)
-   let nome = data['message']["myHistorys"]["nome"].split(" ")
+   let nome = data["message"]["myHistorys"]["nome"].split(" ")
+   
    nome = `${nome[0]} ${nome[nome.length - 1]}`
    document.querySelector("#nomeUser").innerHTML = nome
    // Aqui você pode lidar com a resposta da API
