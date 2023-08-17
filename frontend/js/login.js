@@ -128,9 +128,9 @@ document.querySelector(".login-form").addEventListener("submit", function(event)
         console.error('Erro na requisição:', error)
         // Lidar com erros, se houver
     })
-    textInput.value = ""
-    modal.style.display = 'none';
+    
+    console.log("Email:", userEmail);
+    console.log("Senha:", senha);
     });
     
-    console.log("Email:", email);
-    console.log("Senha:", senha);
+    
