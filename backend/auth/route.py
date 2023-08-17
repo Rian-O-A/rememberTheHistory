@@ -21,7 +21,7 @@ def login():
         
         response = Manager.loginUser(email=getInfo["email"], senha=getInfo["password"])
         if response[-1] == 200:
-            return jsonify({"message": {"token":create_access_token(response[0])}}), response[1]
+            return jsonify(access_token=create_access_token(response[0])), response[1]
         return jsonify({"message": response[0]}), response[1]
         
         
