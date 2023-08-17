@@ -61,6 +61,20 @@ def register():
         return jsonify({"error":str(e)}), 500
     
 
+@authRoute.route("/refresh", methods=["POST"])
+@jwt_required()
+def refresh():
+    getInfo = request.get_json()
+   
+    return jsonify(access_token=create_access_token(getInfo)), 200
+        
+        
+   
+        
+  
+
+
+
 # =============================== app route default ===============================
 
 @authDefault.route("/to-record", methods=["POST"]) # route to record user message 
