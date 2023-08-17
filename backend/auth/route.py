@@ -48,9 +48,9 @@ def register():
         assert len(getInfo['password']) > 7, 'invalid password'
         assert 'name' in getInfo, "Required name"
         
-        response  = Manager.registerUser(email=getInfo['email'], senha=getInfo['password'], name=getInfo['name'])
         
-        return jsonify({"message":{"token": create_access_token(response)}}), 201
+        response  = Manager.registerUser(email=getInfo['email'], senha=getInfo['password'], name=getInfo['name'])
+        return jsonify(access_token=create_access_token(response)), 201
         
     except AssertionError as asser:
         return jsonify({"error":str(asser)}), 400
@@ -66,7 +66,7 @@ def register():
 def refresh():
     getInfo = request.get_json()
    
-    return jsonify(access_token=create_access_token(getInfo)), 200
+    return jsonify(access_token=create_access_token(getInfo)), 201
         
         
    
