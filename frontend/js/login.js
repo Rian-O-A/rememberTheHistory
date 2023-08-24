@@ -1,26 +1,10 @@
 function remenberMe(){
     let salvarObject = {email: document.querySelector('#userEmail').value, password: document.querySelector('#password').value}
-    const dataExpiracao = new Date('9999-12-31').toUTCString()
-    const cookie = `inputs=${encodeURIComponent(JSON.stringify(salvarObject))}; expires=${dataExpiracao}; path=/`
-    document.cookie = cookie
+    setObjectFromCookie(salvarObject, 'inputs')
 }
 
-function getObjectFromCookie(nome) {
-    const cookies = document.cookie.split(';')
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim()
-      if (cookie.startsWith(nome + '=')) {
-        const objetoCodificado = cookie.substring(nome.length + 1)
-        const objetoDecodificado = decodeURIComponent(objetoCodificado)
-        return JSON.parse(objetoDecodificado)
-      }
-    }
-    return null
-  }
 
-function deleteCookie() {
-    document.cookie = `inputs=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
-}
+
 
 
   
@@ -40,7 +24,7 @@ document.querySelector("#remember").addEventListener('change', function() {
     if (document.querySelector("#remember").checked) {
       remenberMe()
     } else {
-      deleteCookie()
+        deleteCookie("inputs")
     }})
 
 
@@ -122,6 +106,9 @@ document.querySelector(".login-form").addEventListener("submit", function(event)
     .then(response => response.json()) // Converte a resposta para JSON
     .then(data => {
         console.log('Resposta da API:', data)
+        setObjectFromCookie(data["access_token"], 'user')
+        console.log('SALVO NO COOKIE')
+        window.location.href = "/frontend/index.html";
         // Aqui você pode lidar com a resposta da API
     })
     .catch(error => {
