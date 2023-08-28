@@ -84,9 +84,37 @@ if (form){
         }else{
     
             event.preventDefault()
-            let nome = document.querySelector(".input").value
-            window.alert(`User "${nome}" registrado com sucesso!`)
-            window.location.href = './index.html'
+
+            let data =  {
+                email: document.querySelector("#userEmail").value, 
+                password: document.querySelector("#userPassword").value,
+                name: document.querySelector("#username").value
+            }   
+             // Configuração do request
+            const optionsPost = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                }, body: JSON.stringify(data),
+            }
+            
+            // Fazendo o request
+            fetch("https://rememberthehistory.onrender.com/auth/register", optionsPost)
+            .then(response => response.json()) // Converte a resposta para JSON
+            .then(data => {
+                console.log('Resposta da API:', data)
+                setObjectFromCookie(data["access_token"], 'user')
+                console.log('SALVO NO COOKIE')
+                window.location.href = "/frontend/index.html";
+                // Aqui você pode lidar com a resposta da API
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error)
+                // Lidar com erros, se houver
+            })
+
+            
+            
         }
     
     

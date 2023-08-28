@@ -1,4 +1,4 @@
-const container = document.querySelector("#muralStore")
+const container = document.querySelector("#bodyMural")
 const url = 'https://rememberthehistory.onrender.com/all/history'
 
 const token  = getObjectFromCookie('user')
@@ -15,8 +15,8 @@ const options = {
 
 
 
+window.addEventListener("DOMContentLoaded", () =>{
 
-function Session(){
 
   fetch("https://rememberthehistory.onrender.com/user/history", options)
     .then(response => {
@@ -31,50 +31,50 @@ function Session(){
       const formattedName = `${nome[0]} ${nome[nome.length - 1]}`
       document.querySelector("#nomeUser").innerHTML = formattedName
       document.querySelector(".loading-overlay").style.display = "none"
+      getHistory()
       sessionStorage.setItem('session', JSON.stringify(data['message']['myHistorys']))
     })
     .catch(error => {
       console.error('Request Error:', error)
     })
-
+  
     
+  
+})
+
+
+function getHistory(){
+
+  fetch(url, options)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Request error: ' + response.status)
+      }
+      return response.json()
+    })
+    .then(data => {
+      const message = data.message["historys"]
+      const chaves = Object.keys(message)
+      document.querySelector(".loaderDiv").style.display = 'none'
+      chaves.forEach((valor) => {
+        const cardHTML = createCardHTML(message, valor)
+        container.innerHTML += cardHTML
+      })
+      
+      const openModalButton = document.querySelectorAll('.user')
+      
+      openModalButton.forEach((div) => {
+        div.addEventListener('click', (event) => { openModal(event, div, message) })
+      })
+      
+      const closeModalButton = document.getElementById('closeModalButton')
+      closeModalButton.addEventListener('click', closeModal)
+    })
+    .catch(error => {
+      
+      console.error('Error:', error)
+    })
 }
-
-Session()
-
-
-
-
-
-fetch(url, options)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Request error: ' + response.status)
-    }
-    return response.json()
-  })
-  .then(data => {
-    const message = data.message["historys"]
-    const chaves = Object.keys(message)
-    document.querySelector(".loaderDiv").style.display = 'none'
-    
-    chaves.forEach((valor) => {
-      const cardHTML = createCardHTML(message, valor)
-      container.innerHTML += cardHTML
-    })
-    
-    const openModalButton = document.querySelectorAll('.user')
-    
-    openModalButton.forEach((div) => {
-      div.addEventListener('click', (event) => { openModal(event, div, message) })
-    })
-    
-    const closeModalButton = document.getElementById('closeModalButton')
-    closeModalButton.addEventListener('click', closeModal)
-  })
-  .catch(error => {
-    console.error('Error:', error)
-  })
 
   const modal = document.querySelector('.modalInput')
   const openModalButtonInput = document.querySelector('.plus-icon')
@@ -93,7 +93,6 @@ fetch(url, options)
 submitButton.addEventListener('click', () => {
   const userInput = textInput.value
   const data = {
-    nome: "Leticia Baronete da Silva",
     message: userInput
   }
 
@@ -110,6 +109,10 @@ submitButton.addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
       console.log('API Response:', data)
+      container.innerHTML = ""
+      document.querySelector(".loaderDiv").style.display = ''
+      getHistory()
+
     })
     .catch(error => {
       console.error('Request Error:', error)
