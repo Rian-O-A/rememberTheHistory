@@ -2,7 +2,6 @@ const container = document.querySelector("#muralStore")
 const url = 'https://rememberthehistory.onrender.com/all/history'
 
 const token  = getObjectFromCookie('user')
-   
 
 
 
@@ -13,6 +12,39 @@ const options = {
     "Authorization": `Bearer ${token}`
   }
 }
+
+
+
+
+function Session(){
+
+  fetch("https://rememberthehistory.onrender.com/user/history", options)
+    .then(response => {
+  
+      if (!response.ok) {
+        window.location.href = "/frontend/login.html"
+        throw new Error('Request error: ' + response.status)
+      }
+      return response.json()})
+    .then(data => {
+      const nome = data["message"]["myHistorys"]["nome"].split(" ")
+      const formattedName = `${nome[0]} ${nome[nome.length - 1]}`
+      document.querySelector("#nomeUser").innerHTML = formattedName
+      document.querySelector(".loading-overlay").style.display = "none"
+      sessionStorage.setItem('session', JSON.stringify(data['message']['myHistorys']))
+    })
+    .catch(error => {
+      console.error('Request Error:', error)
+    })
+
+    
+}
+
+Session()
+
+
+
+
 
 fetch(url, options)
   .then(response => {
@@ -68,7 +100,8 @@ submitButton.addEventListener('click', () => {
   const optionsPost = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      "Authorization": `Bearer ${token}`
     },
     body: JSON.stringify(data),
   }
@@ -86,23 +119,7 @@ submitButton.addEventListener('click', () => {
   modal.style.display = 'none'
 })
 
-fetch("https://rememberthehistory.onrender.com/user/history", options)
-  .then(response => {
 
-    if (!response.ok) {
-      window.location.href = "/frontend/login.html"
-      throw new Error('Request error: ' + response.status)
-    }
-    return response.json()})
-  .then(data => {
-    console.log('API Response:', data)
-    const nome = data["message"]["myHistorys"]["nome"].split(" ")
-    const formattedName = `${nome[0]} ${nome[nome.length - 1]}`
-    document.querySelector("#nomeUser").innerHTML = formattedName
-  })
-  .catch(error => {
-    console.error('Request Error:', error)
-  })
 
 
   function createCardHTML(message, valor) {
@@ -121,13 +138,12 @@ fetch("https://rememberthehistory.onrender.com/user/history", options)
 
 function openModal(event, div, message) {
   const idUSER = div.querySelector(".idUSER").innerHTML
-  console.log("paseei aqui")
   const user = {
     name: message[idUSER].nome,
     date: message[idUSER].dataCreate.slice(0, 10).split('-').reverse().join("/"),
     hora: message[idUSER].dataCreate.split(' ')[1]
   }
-  console.log(user)
+
   const userModal = document.querySelector('.modal')
   const userNameElement = document.getElementById('userName')
   const userDateElement = document.getElementById('userDate')
@@ -145,7 +161,7 @@ function openModal(event, div, message) {
   userModal.style.display = 'block'
   userModal.style.left = `${buttonRect.left}px`
   userModal.style.top = `${buttonRect.bottom + 10}px`
-  console.log(userModal.style.display)
+
 
 }
 
@@ -158,3 +174,4 @@ document.querySelector("#logout").addEventListener("click", ()=> {
   deleteCookie("user")
   window.location.href = "/frontend/login.html"
 })
+
