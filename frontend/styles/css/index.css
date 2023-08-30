@@ -113,11 +113,16 @@ nav a.active:hover::after {
   align-items: center; /* Centraliza verticalmente os itens dentro do container */
   padding-top: 30px;
   justify-content: center;
+  
+  
+  
 }
+
 nav img {
   width: 75px; /* A imagem ocupa toda a largura da div */
   height: auto; /* A altura é ajustada proporcionalmente */
   border-radius: 50%; /* Bordas arredondadas para a imagem */
+  
 }
 
 .date,
@@ -132,6 +137,8 @@ nav img {
   width: 100px;
   height: 100px;
   transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
+  
+  
 }
 
 .date {
@@ -158,6 +165,7 @@ nav img {
   overflow: hidden; /* Impede que o texto ultrapasse a div "date" */
   white-space: nowrap; /* Impede que o texto seja quebrado em várias linhas */
   text-overflow: ellipsis; /* Adiciona "..." ao final do texto truncado */
+  
 }
 
 .message p {
@@ -269,6 +277,7 @@ h2.modal-title {
     padding: 20px;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Sombra - Azul claro com transparência */
     border-radius: 15px; /* Borda arredondada */
+    animation: sliding 2s linear infinite;
   }
   
   .close {
@@ -313,7 +322,26 @@ h2.modal-title {
   
   
   
-  
+  @keyframes sliding {
+    0% {
+      box-shadow: 0 0 0 2px #db7734;
+    }
+    25% {
+      box-shadow: 100% 0 0 2px #db3434;
+    }
+    50% {
+      box-shadow: 100% 100% 0 2px #db7734;
+    }
+    75% {
+      box-shadow: 0 100% 0 2px #db7734;
+    }
+    100% {
+      box-shadow: 0 0 0 2px #db7734;
+    }
+  }
+
+
+
 
 /* Estilo do menu em telas menores (responsivo) */
 @media (max-width: 768px) {

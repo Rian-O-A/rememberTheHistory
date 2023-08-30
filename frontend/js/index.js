@@ -1,8 +1,5 @@
 const container = document.querySelector("#bodyMural")
-const url = 'https://rememberthehistory.onrender.com/all/history'
-
 const token  = getObjectFromCookie('user')
-
 
 
 const options = {
@@ -13,12 +10,8 @@ const options = {
   }
 }
 
-
-
 window.addEventListener("DOMContentLoaded", () =>{
-
-
-  fetch("https://rememberthehistory.onrender.com/user/history", options)
+  fetch(`${url}/user/history`, options)
     .then(response => {
   
       if (!response.ok) {
@@ -37,15 +30,12 @@ window.addEventListener("DOMContentLoaded", () =>{
     .catch(error => {
       console.error('Request Error:', error)
     })
-  
-    
-  
 })
 
 
 function getHistory(){
 
-  fetch(url, options)
+  fetch(`${url}/all/history`, options)
     .then(response => {
       if (!response.ok) {
         throw new Error('Request error: ' + response.status)
@@ -105,7 +95,7 @@ submitButton.addEventListener('click', () => {
     body: JSON.stringify(data),
   }
 
-  fetch("https://rememberthehistory.onrender.com/to-record", optionsPost)
+  fetch(`${url}/to-record`, optionsPost)
     .then(response => response.json())
     .then(data => {
       console.log('API Response:', data)

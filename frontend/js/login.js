@@ -102,7 +102,7 @@ document.querySelector(".login-form").addEventListener("submit", function(event)
     }
     
     // Fazendo o request
-    fetch("https://rememberthehistory.onrender.com/auth/login", optionsPost)
+    fetch(`${url}/auth/login`, optionsPost)
     .then(response => response.json()) // Converte a resposta para JSON
     .then(data => {
         console.log('Resposta da API:', data)
