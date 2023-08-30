@@ -34,7 +34,6 @@ class Manager:
         
         
         if "idToken" in response:
-            print(response)
             return ({"uid":response['localId'], "displayName": response["displayName"]}, 200)
         else:
             return ({"error":response['error']['message']}, response['error']['code'])
