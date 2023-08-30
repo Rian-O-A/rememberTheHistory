@@ -269,16 +269,15 @@ h2.modal-title {
 /* ============================= modal ============================== */
 /* Estilize o modal conforme suas preferências */
 .modal {
-    display: none; /* Modal inicialmente oculto */
-    position: absolute;
-    background-color: #1f1f1f; /* Cor de fundo - Preto escuro */
-    border: 2px solid #00ffff; /* Cor da borda - Azul claro */
-    width: 300px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Sombra - Azul claro com transparência */
-    border-radius: 15px; /* Borda arredondada */
-    animation: sliding 2s linear infinite;
-  }
+  display: none; /* Modal inicialmente oculto */
+  position: absolute;
+  background-color: #1f1f1f; /* Cor de fundo - Preto escuro */
+  border: 2px solid #00ffff; /* Cor da borda - Azul claro */
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Sombra - Azul claro com transparência */
+  border-radius: 15px; /* Borda arredondada */
+}
   
   .close {
     color: #00ffff; /* Azul claro */
@@ -318,27 +317,11 @@ h2.modal-title {
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent #1f1f1f transparent; /* A mesma cor de fundo do modal */
+    
   }
   
   
-  
-  @keyframes sliding {
-    0% {
-      box-shadow: 0 0 0 2px #db7734;
-    }
-    25% {
-      box-shadow: 100% 0 0 2px #db3434;
-    }
-    50% {
-      box-shadow: 100% 100% 0 2px #db7734;
-    }
-    75% {
-      box-shadow: 0 100% 0 2px #db7734;
-    }
-    100% {
-      box-shadow: 0 0 0 2px #db7734;
-    }
-  }
+
 
 
 
