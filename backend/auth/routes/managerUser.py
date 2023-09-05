@@ -33,4 +33,18 @@ def getHistoryUser():
         
         return jsonify({"message":{"myHistorys":dataStores}}), 200
     
+
+@managerUser.route("/history", methods=["DELETE"])
+@jwt_required()
+def deleteMessage():
     
+    if request.method == "DELETE":
+        try:
+            infoUser = get_jwt_identity()
+         
+            Manager.mapRealTimeDataBase(f'/timeCapsule/{infoUser["uid"]}').delete()
+            
+            return jsonify({"message":{"return":"DELETE", "code":201}}), 201
+        except Exception as e:
+            
+            return jsonify({"error":"INTERNAL ERROR"}), 500
