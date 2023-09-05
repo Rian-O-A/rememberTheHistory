@@ -11,7 +11,7 @@ const options = {
 }
 
 window.addEventListener("DOMContentLoaded", () =>{
-  fetch(`${url}/user/history`, options)
+  fetch(`${url}/user/infor`, options)
     .then(response => {
   
       if (!response.ok) {
@@ -20,12 +20,12 @@ window.addEventListener("DOMContentLoaded", () =>{
       }
       return response.json()})
     .then(data => {
-      const nome = data["message"]["myHistorys"]["nome"].split(" ")
+      const nome = data["message"]["data"]["nome"].split(" ")
       const formattedName = `${nome[0]} ${nome[nome.length - 1]}`
       document.querySelector("#nomeUser").innerHTML = formattedName
       document.querySelector(".loading-overlay").style.display = "none"
       getHistory()
-      sessionStorage.setItem('session', JSON.stringify(data['message']['myHistorys']))
+      sessionStorage.setItem('session', JSON.stringify(data['message']['data']))
     })
     .catch(error => {
       console.error('Request Error:', error)
