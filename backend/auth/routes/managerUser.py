@@ -8,6 +8,23 @@ managerUser = Blueprint('Manager user', __name__)
    
 # =============================== app route default ===============================
 
+@managerUser.route("/infor", methods=["GET"])
+@jwt_required()
+def inforUsers():
+    
+    if request.method == "GET":
+        try:
+            inforUser = get_jwt_identity()
+         
+            response = Manager.infoUser(inforUser["uid"])
+            
+            if response[-1] == 200:
+                return jsonify({"message":{"data":response[0], "code":200}}), 200
+        except Exception as e:
+            
+            return jsonify({"error":"INTERNAL ERROR"}), 500
+
+
 @managerUser.route("/to-record", methods=["POST"]) # route to record user message 
 @jwt_required()
 def toRecord():

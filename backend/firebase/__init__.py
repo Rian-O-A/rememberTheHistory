@@ -37,6 +37,11 @@ class Manager:
             return ({"uid":response['localId'], "displayName": response["displayName"]}, 200)
         else:
             return ({"error":response['error']['message']}, response['error']['code'])
+        
+    def infoUser(uid):
+        
+        response =  auth.get_user(uid)
+        return ({"email":response.email, "nome": response.display_name}, 200)
                 
 
                 
