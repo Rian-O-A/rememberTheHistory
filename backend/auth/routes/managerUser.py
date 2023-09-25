@@ -28,40 +28,40 @@ def inforUsers():
 @managerUser.route("/to-record", methods=["POST"]) # route to record user message 
 @jwt_required()
 def toRecord():
-    if request.method =="POST":
-        infoUser = get_jwt_identity()
-        dataStory = request.get_json()
-        dataStory["nome"] = infoUser["displayName"]
-        assert dataStory["message"], "required message field"
-        dataStory["dataCreate"] = nowTemp()
-        dataStory["key"] = infoUser['uid']
-        Manager.mapRealTimeDataBase(f"/timeCapsule/{infoUser['uid']}").set(dataStory)
-        
-        return jsonify({"message":"Sua historia foi gravada com succeso!"}), 201
+    
+    infoUser = get_jwt_identity()
+    dataStory = request.get_json()
+    dataStory["nome"] = infoUser["displayName"]
+    assert dataStory["message"], "required message field"
+    dataStory["dataCreate"] = nowTemp()
+    dataStory["key"] = infoUser['uid']
+    Manager.mapRealTimeDataBase(f"/timeCapsule/{infoUser['uid']}").set(dataStory)
+    
+    return jsonify({"message":"Sua historia foi gravada com succeso!"}), 201
     
 @managerUser.route("/history", methods=["GET"]) # route to get user message
 @jwt_required()
 def getHistoryUser():
-    if request.method =="GET":
-        infoUser = get_jwt_identity()
-        
-      
-        dataStores= Manager.mapRealTimeDataBase(f"/timeCapsule/{infoUser['uid']}").get()
-        
-        return jsonify({"message":{"myHistorys":dataStores}}), 200
+    
+    infoUser = get_jwt_identity()
+    
+    
+    dataStores= Manager.mapRealTimeDataBase(f"/timeCapsule/{infoUser['uid']}").get()
+    
+    return jsonify({"message":{"myHistorys":dataStores}}), 200
     
 
 @managerUser.route("/history", methods=["DELETE"])
 @jwt_required()
 def deleteMessage():
     
-    if request.method == "DELETE":
-        try:
-            infoUser = get_jwt_identity()
-         
-            Manager.mapRealTimeDataBase(f'/timeCapsule/{infoUser["uid"]}').delete()
-            
-            return jsonify({"message":{"return":"DELETE", "code":201}}), 201
-        except Exception as e:
-            
-            return jsonify({"error":"INTERNAL ERROR"}), 500
+    
+    try:
+        infoUser = get_jwt_identity()
+        
+        Manager.mapRealTimeDataBase(f'/timeCapsule/{infoUser["uid"]}').delete()
+        
+        return jsonify({"message":{"return":"DELETE", "code":201}}), 201
+    except Exception as e:
+        
+        return jsonify({"error":"INTERNAL ERROR"}), 500
