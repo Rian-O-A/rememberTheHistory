@@ -35,6 +35,8 @@ app.config['JWT_ALGORITHM'] = 'RS256'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(minutes=2880)
 jwt = JWTManager(app)
 
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+
 def create_app():
     # Registro do Blueprint de autenticação
     from .routes.authorization import authRoute
@@ -44,7 +46,7 @@ def create_app():
     app.register_blueprint(authDefault, url_prefix="/all")
     app.register_blueprint(authRoute, url_prefix="/auth")
     app.register_blueprint(managerUser, url_prefix="/user")
-    CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]}}, supports_credentials=True)
+   
 
     # Outras configurações e registros de Blueprints e rotas vão aqui
     return app
