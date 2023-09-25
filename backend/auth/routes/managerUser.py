@@ -25,7 +25,7 @@ def inforUsers():
             return jsonify({"error":"INTERNAL ERROR"}), 500
 
 
-@managerUser.route("/to-record", methods=["POST", "GET"]) # route to record user message 
+@managerUser.route("/to-record", methods=["POST"]) # route to record user message 
 @jwt_required()
 def toRecord():
     if request.method =="POST":
