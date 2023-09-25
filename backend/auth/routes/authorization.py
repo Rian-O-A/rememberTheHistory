@@ -20,10 +20,6 @@ def login():
             return jsonify(access_token=create_access_token(response[0])), response[1]
         return jsonify({"message": response[0]}), response[1]
         
-        
-   
-        
-        
     except AssertionError as asser:
         return jsonify({"error":asser}), 400
     
@@ -60,6 +56,6 @@ def register():
 @authRoute.route("/refresh", methods=["POST"])
 @jwt_required()
 def refresh():
+    
     getInfo = request.get_json()
-   
     return jsonify(access_token=create_access_token(getInfo)), 201
