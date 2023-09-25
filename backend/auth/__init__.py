@@ -45,11 +45,6 @@ def create_app():
     app.register_blueprint(authRoute, url_prefix="/auth")
     app.register_blueprint(managerUser, url_prefix="/user")
     CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"]}}, supports_credentials=True)
-    # Manipulador de rota OPTIONS genérico
-    @app.route('/', methods=['OPTIONS'])
-    @app.route('/<path:path>', methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
-    def options_handler(path=None):
-        return '', 204
 
     # Outras configurações e registros de Blueprints e rotas vão aqui
     return app
