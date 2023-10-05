@@ -125,3 +125,15 @@ if (form){
 var video = document.getElementById('video-background')
 
 // video.style.display = ''
+
+ // Função para mostrar a modal de erro login
+
+    
+
+
+document.querySelector(".close-buttonLoginError").addEventListener('click', () => {
+    
+document.getElementById("modalErro").style.display = "none";
+    
+}) 
+

@@ -81,9 +81,10 @@ modalButton.addEventListener("click", function(event) {
 
 document.querySelector(".login-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Impede o envio do formulário
-
-    // Aqui você pode adicionar o código para executar quando o formulário for enviado
-    console.log("Formulário enviado!");
+    let controllViwer= document.getElementById("controllViwer")
+    let loader_container= document.querySelector(".loader-container")
+    controllViwer.style.display ='none'
+    loader_container.style.display ='flex'
 
     // Você pode acessar os valores dos campos do formulário assim:
     var userEmail = document.getElementById("userEmail").value;
@@ -103,13 +104,28 @@ document.querySelector(".login-form").addEventListener("submit", function(event)
     
     // Fazendo o request
     fetch(`${url}/auth/login`, optionsPost)
-    .then(response => response.json()) // Converte a resposta para JSON
+    .then(response => {
+
+        if (response.status === 200) {
+          return response.json(); // ou response.text() se estiver recebendo texto
+        } else {
+            controllViwer.style.display =''
+            loader_container.style.display ='none'
+            document.getElementById("modalErro").style.display = "block";
+            console.error('Erro na solicitação. Status code:', response.status);
+        }
+      }) // Converte a resposta para JSON
     .then(data => {
-        console.log('Resposta da API:', data)
-        setObjectFromCookie(data["access_token"], 'user')
-        console.log('SALVO NO COOKIE')
-        window.location.href = "/frontend/index.html";
-        // Aqui você pode lidar com a resposta da API
+        if(data){
+
+            console.log('Resposta da API:', data)
+            setObjectFromCookie(data["access_token"], 'user')
+            console.log('SALVO NO COOKIE')
+            controllViwer.style.display =''
+            loader_container.style.display ='none'
+            window.location.href = "/frontend/index.html";
+            // Aqui você pode lidar com a resposta da API
+        }
     })
     .catch(error => {
         console.error('Erro na requisição:', error)

@@ -5,56 +5,73 @@
   <title>Login</title>
   <link rel="stylesheet" type="text/css" href="./styles/css/login.css">
   <link rel="stylesheet" href="./styles/css/footer.css">
+  <link rel="stylesheet" href="./styles/css/modal.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="icon" type="image/png" href="./styles/css/img/icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 </head>
 <body>
-    <video id="video-background" autoplay loop muted>
-        <source src="./styles/css/img/backGround.mp4" type="video/mp4">
-        
-    </video>
+  <video id="video-background" autoplay loop muted>
+    <source src="./styles/css/img/backgroundLogin.mp4" type="video/mp4">
+    <img src="./styles/img/backgroundIMG.jpg" alt="Vídeo de Fundo">
+  </video>
   <div class="container">
+    <div class="loader-container">
+      <div class="loader"></div>
+  </div>
     <form class="login-form">
-      <div class="form-group">
-        <label class="label" for="username">Usuário</label>
-        <input class="input" type="email" id="userEmail" placeholder="Digite seu nome de usuário" required/>
-      </div>
-      <div class="form-group">
-        <label class="label" for="password">Senha</label>
-        <input class="input passwdInput" type="password" id="password" placeholder="Digite sua senha" />
-        <span id="toggle-password" class="toggle-password">
-          
-          <i id="toggle-password-icon" class="iconEyes fas fa-eye-slash"></i>
-          
-          </span>
-      </div>
-      <div class="form-group">
-        <div class="remember-checkbox">
-            <input class="checkbox" type="checkbox" id="remember"/>
-            <label for="remember">Lembrar de mim</label>
-            <p><a id="openModalBtn">Esqueceu a senha?</a></p>
-            
-            <div id="myModal" class="modal">
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Recuperar login</h2>
-                <input class="inputsModal" type="email"  placeholder=" Digite o email registrado"/>
-                <button class="buttonModal">Enviar email</button>  
-                 
-              </div>
-            </div>
+      <div id="controllViwer">
 
+        <div class="form-group">
+          <label class="label" for="username">Usuário</label>
+          <input class="input" type="email" id="userEmail" placeholder="Digite seu nome de usuário" required/>
         </div>
-      </div>
-      <button class="button" type="submit">Entrar</button>
-      <div class="form-group">
-        <p>Ainda não tem uma conta? <a href="./register.html">Criar uma conta</a></p>
+        <div class="form-group">
+          <label class="label" for="password">Senha</label>
+          <input class="input passwdInput" type="password" id="password" placeholder="Digite sua senha" />
+          <span id="toggle-password" class="toggle-password">
+            
+            <i id="toggle-password-icon" class="iconEyes fas fa-eye-slash"></i>
+            
+            </span>
+        </div>
+        <div class="form-group">
+          <div class="remember-checkbox">
+              <input class="checkbox" type="checkbox" id="remember"/>
+              <label for="remember">Lembrar de mim</label>
+              <p><a id="openModalBtn">Esqueceu a senha?</a></p>
+              
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2>Recuperar login</h2>
+                  <input class="inputsModal" type="email"  placeholder=" Digite o email registrado"/>
+                  <button class="buttonModal">Enviar email</button>  
+                   
+                </div>
+              </div>
+  
+          </div>
+        </div>
+        <button class="button" type="submit">Entrar</button>
+        <div class="form-group">
+          <p>Ainda não tem uma conta? <a href="./register.html">Criar uma conta</a></p>
+        </div>
       </div>
       
     </form>
   </div>
-
+ 
+</div>
+<div id="modalErro">
+  <div class="modal-contentLoginErro">
+      <span class="close-buttonLoginError">&times;</span>
+      <i class="fas fa-exclamation-triangle error-icon"></i>
+      <h2>Erro de Login</h2>
+      <p>Desculpe, ocorreu um erro durante o login. Por favor, verifique suas credenciais e tente novamente.</p>
+  </div>
+</div>
   <footer>
     <div class="footer-content">
       <div class="social-icons">

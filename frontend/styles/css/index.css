@@ -4,7 +4,8 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   color: #fff;
-  background-color: #111; /* Fundo escuro */
+  background-image: url("/frontend/styles/css/img/bd.png");
+
 }
 
 
@@ -62,7 +63,7 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: right;
-  background-color: #333;
+  background-color: #3333337a;
   margin: 0;
   padding: 10px;
 }
@@ -130,10 +131,10 @@ nav img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00BFFF;
+  background-color: #e61bc4d0;
   border: none;
   border-radius: 5px 0 0 5px;
-  border-right: 1px solid #ffffff;
+
   width: 100px;
   height: 100px;
   transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
@@ -150,22 +151,23 @@ nav img {
   width: 80%; /* A imagem ocupa toda a largura da div */
   height: auto; /* A altura é ajustada proporcionalmente */
   border-radius: 50%; /* Bordas arredondadas para a imagem */
+  cursor: pointer;
 }
 
 .message {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00BFFF;
+  background-color: #1bb3e6ab;
   border: none;
-  border-right: 1px solid #ffffff;
   width: 500px;
   height: 100px;
   transition: background-color 0.3s ease; /* Efeito de transição na cor de fundo */
   overflow: hidden; /* Impede que o texto ultrapasse a div "date" */
   white-space: nowrap; /* Impede que o texto seja quebrado em várias linhas */
   text-overflow: ellipsis; /* Adiciona "..." ao final do texto truncado */
-  
+  border-right: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
 }
 
 .message p {
@@ -178,6 +180,7 @@ nav img {
 
 
 .plus-icon {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,11 +193,16 @@ nav img {
   font-size: 64px;
 }
 
+.message:hover{
+  border-right: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  
+}
 
 
 .plus-icon:hover {
-  background-color: #00b3e6; /* Azul-ciano um pouco mais escuro em hover */
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Sombra azul-ciano mais intensa em hover */
+  background-color: #ff00ff; /* Azul-ciano um pouco mais escuro em hover */
+  box-shadow: 0 0 15px #8f028f; /* Sombra azul-ciano mais intensa em hover */
 }
 
 
@@ -202,128 +210,31 @@ nav img {
   padding-left: 20%;
   padding-top: 5%;
 }
-
-
-/* ============================= modal de input ================================ */
-.modalInput {
-  background-color: #1a1a1a; /* Cor de fundo - Cinza escuro */
-  color: #fff; /* Texto em branco */
-  border: 2px solid #00ccff; /* Cor da borda - Azul-ciano */
-  border-radius: 15px; /* Borda arredondada */
-  box-shadow: 0 0 20px rgba(0, 204, 255, 0.5); /* Sombra - Azul-ciano com transparência */
-  display: none; /* Modal inicialmente oculto */
+  
+  
+footer {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999; /* Z-index alto para ficar acima de outros elementos */
-  padding: 20px;
-  width: 20%;
-}
-
-#textInput{
-  width: 70%;
-  height: 60%;
-  resize: none;
-
-}
-
-
-.modal-contentInput {
-  text-align: center;
-}
-
-h2.modal-title {
-  color: #00ccff; /* Azul-ciano */
-}
-
-.input-field textarea {
-  border: 1px solid #00ccff; /* Azul-ciano */
-  background-color: rgba(0, 204, 255, 0.2); /* Fundo azul-ciano com transparência */
-  color: #fff; /* Texto em branco */
-  padding: 10px;
-  border-radius: 5px;
-  resize: vertical; /* Permite a expansão vertical */
-  min-height: 100px; /* Altura mínima */
-}
-
-#submitButton {
-  background-color: #00ccff; /* Azul-ciano */
-  color: #fff; /* Texto em branco */
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 12px 20px;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-#submitButton:hover {
-  background-color: #00b3e6; /* Azul-ciano um pouco mais escuro em hover */
+  bottom: 0;
+  left: 0; /* Alinhar à esquerda */
+  right: 0; /* Alinhar à direita */
+  text-align: center; /* Centralizar o texto */
+  color: #fff; /* Cor do texto */
+  padding: 20px 0; /* Espaçamento interno */
+  text-align: center; /* Centralizar o texto */
 }
 
 
 
-/* ============================= modal ============================== */
-/* Estilize o modal conforme suas preferências */
-.modal {
-  display: none; /* Modal inicialmente oculto */
-  position: absolute;
-  background-color: #1f1f1f; /* Cor de fundo - Preto escuro */
-  border: 2px solid #00ffff; /* Cor da borda - Azul claro */
-  width: 300px;
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Sombra - Azul claro com transparência */
-  border-radius: 15px; /* Borda arredondada */
+/* Estilizar links dentro do footer */
+footer a {
+  color: #fff; /* Cor dos links */
+  text-decoration: none; /* Remover sublinhado */
 }
-  
-  .close {
-    color: #00ffff; /* Azul claro */
-    float: right;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #00ccff; /* Azul um pouco mais escuro */
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  /* Estilos adicionais para o tema futurístico */
-  .modal-content {
-    font-family: 'Arial', sans-serif;
-    color: #fff; /* Texto em branco */
-    line-height: 1.6;
-  }
-  
-  h2 {
-    color: #00ffff; /* Azul claro */
-    border-bottom: 1px solid #00ccff; /* Azul um pouco mais escuro */
-    padding-bottom: 5px;
-  }
-  
-  /* Estilo para o "balão" */
-  .modal::before {
-    content: "";
-    position: absolute;
-    bottom: 100%; /* Posiciona o balão acima do modal */
-    left: 15%;
-    margin-left: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent #1f1f1f transparent; /* A mesma cor de fundo do modal */
-    
-  }
-  
-  
 
-
-
+/* Estilizar links em hover */
+footer a:hover {
+  text-decoration: underline; /* Sublinhar em hover */
+}
 
 
 /* Estilo do menu em telas menores (responsivo) */

@@ -1,0 +1,192 @@
+.modal-title::after {
+    content: '|';
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  /* ============================= modal ============================== */
+  /* Estilize o modal conforme suas preferências */
+  .modal {
+    display: none; /* Modal inicialmente oculto */
+    position: absolute;
+    background-color: #1f1f1f; /* Cor de fundo - Preto escuro */
+    border: 2px solid #00ffff; /* Cor da borda - Azul claro */
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); /* Sombra - Azul claro com transparência */
+    border-radius: 15px; /* Borda arredondada */
+    cursor: pointer;
+  }
+    
+    .close {
+      color: #00ffff; /* Azul claro */
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-right: 10px;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #ff00ff; /* Azul um pouco mais escuro */
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    /* Estilos adicionais para o tema futurístico */
+    .modal-content {
+      font-family: 'Arial', sans-serif;
+      color: #fff; /* Texto em branco */
+      line-height: 1.6;
+    }
+    
+    .modal-content h2 {
+      color: #00ffff; /* Azul claro */
+      border-bottom: 1px solid #00ccff; /* Azul um pouco mais escuro */
+      padding-bottom: 5px;
+    }
+    
+    /* Estilo para o "balão" */
+    .modal::before {
+      content: "";
+      position: absolute;
+      bottom: 100%; /* Posiciona o balão acima do modal */
+      left: 15%;
+      margin-left: -10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent #1f1f1f transparent; /* A mesma cor de fundo do modal */
+      
+    }
+
+
+/* ============================= modal de input ================================ */
+.modalInput {
+    background-color: rgba(22, 5, 21, 0.753); /* Define a cor de fundo com opacidade */
+    color: #fff; /* Texto em branco */
+    border: 2px solid #00ccff; /* Cor da borda - Azul-ciano */
+    border-radius: 15px; /* Borda arredondada */
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.5); /* Sombra - Azul-ciano com transparência */
+    display: none; /* Modal inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Z-index alto para ficar acima de outros elementos */
+    padding: 20px;
+    width: 90%; /* Agora a largura é 90% da largura da tela */
+    max-width: 400px; /* Defina um valor máximo para a largura */
+  }
+  
+  #textInput {
+    width: 100%; /* O campo de texto agora ocupa 100% da largura da modal */
+    resize: none;
+  }
+  
+  .modal-contentInput {
+    text-align: center;
+  }
+  
+  h2.modal-title {
+    color: #00ccff; /* Azul-ciano */
+  }
+  
+  .input-field textarea {
+    border: 1px solid #00ccff; /* Azul-ciano */
+    background-color: rgb(5, 153, 190); /* Fundo azul-ciano com transparência */
+    color: #fff; /* Texto em branco */
+    /* padding: 10px; */
+    border-radius: 5px;
+    resize: vertical; /* Permite a expansão vertical */
+    min-height: 100px; /* Altura mínima */
+  }
+  
+  #submitButton {
+    background-color: #00ccff; /* Azul-ciano */
+    color: #fff; /* Texto em branco */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  #submitButton:hover {
+    background-color: #ff00ff; /* Azul-ciano um pouco mais escuro em hover */
+  }
+  
+  #bdBackground {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
+
+/* ======================== modal login error =================== */
+/* Estilos para a modal de erro */
+#modalErro {
+    display: none;
+    position: fixed;
+    color: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+
+
+.modal-contentLoginErro {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.close-buttonLoginError {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Estilos para o ícone animado de erro */
+.error-icon {
+    color: #ff4d4d;
+    font-size: 60px;
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}

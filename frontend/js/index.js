@@ -95,8 +95,10 @@ submitButton.addEventListener('click', () => {
     body: JSON.stringify(data),
   }
 
-  fetch(`${url}/to-record`, optionsPost)
-    .then(response => response.json())
+  fetch(`${url}/user/to-record`, optionsPost)
+    .then(response => {
+      console.log(response)
+      return response.json()})
     .then(data => {
       console.log('API Response:', data)
       container.innerHTML = ""

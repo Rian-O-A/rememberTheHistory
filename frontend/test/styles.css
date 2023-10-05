@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.user-profile {
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.user-info {
+    padding: 20px;
+}
+
+.user-info h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+.user-info p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #777;
+}
+
+.user-info p:first-child {
+    margin-top: 0;
+}
+
+.user-info p:last-child {
+    margin-bottom: 0;
+}
+
+.user-info p::before {
+    content: '\2022'; /* Adiciona um ponto de lista */
+    margin-right: 5px;
+}

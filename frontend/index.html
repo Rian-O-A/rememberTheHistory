@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/css/index.css">
+    <link rel="stylesheet" href="./styles/css/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
     <title>Remember The History</title>
 </head>
 <body>
 
+    <video id="bdBackground" autoplay loop muted>
+        <source src="/frontend/styles/css/img/BackGround.mp4" type="video/mp4">
+        Seu navegador não suporta a reprodução de vídeo.
+    </video>
+    
     <div class="loading-overlay">
         <div class="loading-icon"></div>
     </div>
@@ -32,7 +38,8 @@
           <span class="close" id="closeModal">&times;</span>
           <h2 class="modal-title">Escreva sua mensagem</h2>
           <div class="input-field">
-            <textarea id="textInput" class="textarea" placeholder="Digite seu texto aqui"></textarea>
+            <textarea id="textInput" class="textarea"></textarea>
+            <div id="charCount">0/75</div>
           </div>
           <button id="submitButton" class="button">Enviar</button>
         </div>
@@ -61,6 +68,10 @@
 
     </div>
 
+    <footer>
+        <p>&copy; 2023 <a href="www.linkedin.com/in/rian-almeida" target="_blank">Rian Almeida</a></p>
+    </footer>
+    <script src="./js/filterIndex.js"></script>
     <script src="./js/manager.js"></script>
     <script src="./js/index.js"></script>
     
