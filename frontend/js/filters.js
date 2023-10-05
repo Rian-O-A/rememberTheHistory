@@ -105,7 +105,7 @@ if (form){
                 console.log('Resposta da API:', data)
                 setObjectFromCookie(data["access_token"], 'user')
                 console.log('SALVO NO COOKIE')
-                window.location.href = "/frontend/index.html";
+                window.location.href = "./index.html";
                 // Aqui você pode lidar com a resposta da API
             })
             .catch(error => {

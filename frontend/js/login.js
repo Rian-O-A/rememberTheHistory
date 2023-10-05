@@ -123,7 +123,7 @@ document.querySelector(".login-form").addEventListener("submit", function(event)
             console.log('SALVO NO COOKIE')
             controllViwer.style.display =''
             loader_container.style.display ='none'
-            window.location.href = "/frontend/index.html";
+            window.location.href = "./index.html";
             // Aqui você pode lidar com a resposta da API
         }
     })

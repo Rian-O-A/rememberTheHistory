@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () =>{
     .then(response => {
   
       if (!response.ok) {
-        window.location.href = "/frontend/login.html"
+        window.location.href = "./login.html"
         throw new Error('Request error: ' + response.status)
       }
       return response.json()})
@@ -167,6 +167,6 @@ function closeModal() {
 
 document.querySelector("#logout").addEventListener("click", ()=> {
   deleteCookie("user")
-  window.location.href = "/frontend/login.html"
+  window.location.href = "./login.html"
 })
 
