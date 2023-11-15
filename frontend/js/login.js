@@ -139,8 +139,3 @@ document.querySelector(".login-form").addEventListener("submit", function(event)
     
     const YELLOW = "\x1b[1;33m";
 const RESET = "\x1b[0m";
-
-console.log(`Soma dos quadrados pares: ${YELLOW}${somaQuadradosPares}${RESET}`);
-console.log(`Soma dos quadrados ímpares: ${YELLOW}${somaQuadradosImpares}${RESET}`);
-
-
