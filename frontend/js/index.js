@@ -170,3 +170,13 @@ document.querySelector("#logout").addEventListener("click", ()=> {
   window.location.href = "./login.html"
 })
 
+
+function formatarConsole(value) {
+  if (typeof value === "number") {
+    console.log(value);
+  } else {
+    console.log(value);
+  }
+}
+
+
